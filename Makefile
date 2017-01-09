@@ -5,7 +5,8 @@
 CC=g++
 
 CFLAGS=-c -Wall -Wno-unused-value -std=c++11
-LIBFLAGS=-lboost_serialization -lncurses
+LIBFLAGS=-lncurses
+LDFLAGS=-lgnustl_shared
 
 MAIN=$(shell ls src/*.cpp)
 
@@ -23,6 +24,12 @@ $(EXECUTABLE): $(OBJECTS)
 	mv -f $(EXECUTABLE) bin/
 	mv -f $(OBJECTS) obj/
 	
+android: $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(EXECUTABLE) $(LDFLAGS) $(LIBFLAGS)
+	mkdir obj
+	mkdir bin
+	mv -f $(EXECUTABLE) bin/
+	mv -f $(OBJECTS) obj/
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
