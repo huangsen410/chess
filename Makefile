@@ -9,8 +9,9 @@ LIBFLAGS=-lncurses
 LDFLAGS=-lgnustl_shared
 
 MAIN=$(shell ls src/*.cpp)
+UTIL=$(shell ls src/util/*.cpp)
 
-SOURCES=$(MAIN)
+SOURCES=$(MAIN) $(UTIL)
 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=chess
