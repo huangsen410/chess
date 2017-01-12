@@ -16,6 +16,7 @@
 
 //enum definition
 enum class EnumColor {
+	NONE,
 	BLUE,
 	WHITE
 };
@@ -24,8 +25,10 @@ enum class EnumColor {
 inline int idFromColor(EnumColor color) {
 	if(color == EnumColor::BLUE) { //if blue color is passed to the function
 		return COLOR_BLUE; //return the ncurses code for blue
-	} else { //if white is passed
+	} else if(color == EnumColor::WHITE) { //if white is passed
 		return COLOR_WHITE; //return the ncurses code for white
+	} else { //if anything else is passed
+		return COLOR_RED; //return the code for red, to act as a flag
 	}
 }
 
