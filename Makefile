@@ -10,8 +10,9 @@ LDFLAGS=-lgnustl_shared
 
 MAIN=$(shell ls src/*.cpp)
 UTIL=$(shell ls src/util/*.cpp)
+PIECE=$(shell ls src/piece/*.cpp)
 
-SOURCES=$(MAIN) $(UTIL)
+SOURCES=$(MAIN) $(UTIL) $(PIECE)
 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=chess
