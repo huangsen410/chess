@@ -12,6 +12,7 @@
 
 //enum definition
 enum class EnumPiece {
+	NONE,
 	PAWN,
 	ROOK,
 	KNIGHT,
