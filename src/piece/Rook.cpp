@@ -51,7 +51,7 @@ Rook& Rook::operator=(Rook&& src) {
 
 //canCastle method - returns whether or not the Rook can castle
 bool Rook::canCastle() const {
-	return !hasMoved(); //return true if and only if the Rook hasn't moved
+	return true; //rooks can castle
 }
 
 //getValue method - returns the trade value of the Rook (always 5)
