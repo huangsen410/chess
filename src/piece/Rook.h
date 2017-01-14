@@ -36,10 +36,6 @@ class Rook final : public Piece
 		//move operator
 		Rook& operator=(Rook&& src);
 
-		//inherited pure virtual methods
-		bool canCastle() const override; //returns whether or not the Rook can castle
-		int getValue() const override; //returns the trade value of the Rook (always 5)
-
 		//overridden onMove method - called when the Rook is moved
 		void onMove() override;
 };

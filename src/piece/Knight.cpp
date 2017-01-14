@@ -47,18 +47,6 @@ Knight& Knight::operator=(Knight&& src) {
 	return *this; //and return the object
 }
 
-//inherited pure virtual methods
-
-//canCastle method - returns whether or not the Knight can castle (always false)
-bool Knight::canCastle() const {
-	return false; //knights can't castle
-}
-
-//getValue method - returns the trade value of the Knight (always 3)
-int Knight::getValue() const {
-	return 3; //knights have a value of 3
-}
-
 //overridden onMove method - called when the Knight is moved
 void Knight::onMove() {
 	Piece::onMove(); //call superclass onMove method

@@ -47,18 +47,6 @@ Pawn& Pawn::operator=(Pawn&& src) {
 	return *this; //and return the object
 }
 
-//inherited pure virtual methods
-
-//canCastle method - returns whether or not the Pawn can castle (always false)
-bool Pawn::canCastle() const {
-	return false; //pawns can't castle
-}
-
-//getValue method - returns the trade value of the Pawn (always 1)
-int Pawn::getValue() const {
-	return 1; //pawns have a value of 1
-}
-
 //overridden onMove method - called when the Pawn is moved
 void Pawn::onMove() {
 	Piece::onMove(); //call superclass onMove method

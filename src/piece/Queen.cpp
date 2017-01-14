@@ -47,18 +47,6 @@ Queen& Queen::operator=(Queen&& src) {
 	return *this; //and return the object
 }
 
-//inherited pure virtual methods
-
-//canCastle method - returns whether or not the Queen can castle (always false)
-bool Queen::canCastle() const {
-	return false; //queens can't castle
-}
-
-//getValue method - returns the trade value of the Queen (always 9)
-int Queen::getValue() const {
-	return 9; //bishops have a value of 9
-}
-
 //overridden onMove method - called when the Queen is moved
 void Queen::onMove() {
 	Piece::onMove(); //call superclass onMove method

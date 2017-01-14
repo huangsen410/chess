@@ -35,11 +35,7 @@ class Pawn final : public Piece
 
 		//move operator
 		Pawn& operator=(Pawn&& src);
-
-		//inherited pure virtual methods
-		bool canCastle() const override; //returns whether or not the Pawn can castle (always false)
-		int getValue() const override; //returns the trade value of the Pawn (always 1)
-
+	
 		//overridden onMove method - called when the Pawn is moved
 		void onMove() override;
 };

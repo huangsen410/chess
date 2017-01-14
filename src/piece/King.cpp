@@ -47,18 +47,6 @@ King& King::operator=(King&& src) {
 	return *this; //and return the object
 }
 
-//inherited pure virtual methods
-
-//canCastle method - returns whether or not the King can castle
-bool King::canCastle() const {
-	return true; //kings can castle
-}
-
-//getValue method - returns the trade value of the King (always 1000)
-int King::getValue() const {
-	return 1000; //kings have a value of 1000
-}
-
 //overridden onMove method - called when the King is moved
 void King::onMove() {
 	Piece::onMove(); //call superclass onMove method

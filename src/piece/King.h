@@ -36,10 +36,6 @@ class King final : public Piece
 		//move operator
 		King& operator=(King&& src);
 
-		//inherited pure virtual methods
-		bool canCastle() const override; //returns whether or not the King can castle
-		int getValue() const override; //returns the trade value of the King (1000)
-
 		//overridden onMove method - called when the King is moved
 		void onMove() override;
 };

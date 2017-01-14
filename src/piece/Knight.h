@@ -36,10 +36,6 @@ class Knight final : public Piece
 		//move operator
 		Knight& operator=(Knight&& src);
 
-		//inherited pure virtual methods
-		bool canCastle() const override; //returns whether or not the Knight can castle (always false)
-		int getValue() const override; //returns the trade value of the Knight (always 3)
-
 		//overridden onMove method - called when the Knight is moved
 		void onMove() override;
 };

@@ -11,38 +11,49 @@
 
 //constructor
 Piece::Piece(EnumPiece newPieceID, EnumColor newColorID)
-	: pieceID(newPieceID), colorID(newColorID), symbol('\0'), name(""), moved(false) //init the fields
+	: pieceID(newPieceID), colorID(newColorID), symbol('\0'), name(""), moved(false), castle(false), value(1) //init fields
 {
 	//now we determine the symbol and name fields
 	switch(pieceID) {
 		case EnumPiece::PAWN: { //if the piece is a pawn
 			symbol = 'P'; //the symbol is a P
 			name = "pawn"; //self-explanatory
+			//default castle and value names work
 			break;
 		}
 		case EnumPiece::ROOK: { //if the piece is a rook
 			symbol = 'R'; //the symbol is an R
 			name = "rook"; //self-explanatory
+			castle = true; //rooks can castle
+			value = 5; //rooks have a value of 5
 			break;
 		}
 		case EnumPiece::KNIGHT: { //if the piece is a knight
 			symbol = 'N'; //the symbol is an N
 			name = "knight"; //self-explanatory
+			//default castle value works
+			value = 3; //knights have a value of 3
 			break;
 		}
 		case EnumPiece::BISHOP: { //if the piece is a bishop
 			symbol = 'B'; //the symbol is a B
 			name = "bishop"; //self-explanatory
+			//default castle value works
+			value = 3; //bishops have a value of 3
 			break;
 		}
 		case EnumPiece::KING: { //if the piece is a king
 			symbol = 'K'; //the symbol is a K
 			name = "king"; //self-explanatory
+			castle = true; //kings can castle
+			value = 1000; //kings are worth the game
 			break;
 		}
 		case EnumPiece::QUEEN: { //if the piece is a queen
 			symbol = 'Q'; //the symbol is a Q
 			name = "queen"; //self-explanatory
+			//default castle value works
+			value = 9; //queens are worth 9 points
 			break;
 		}
 		default: { //no match
@@ -58,20 +69,22 @@ Piece::~Piece() {
 
 //copy constructor
 Piece::Piece(const Piece& p)
-	: pieceID(p.pieceID), colorID(p.colorID), symbol(p.symbol), name(p.name), moved(p.moved) //copy the fields
+	: pieceID(p.pieceID), colorID(p.colorID), symbol(p.symbol), name(p.name), moved(p.moved), castle(p.castle), value(p.value)
 {
 	//no code needed
 }
 
 //move constructor
 Piece::Piece(Piece&& p)
-	: pieceID(p.pieceID), colorID(p.colorID), symbol(p.symbol), name(p.name), moved(p.moved) //move the fields
+	: pieceID(p.pieceID), colorID(p.colorID), symbol(p.symbol), name(p.name), moved(p.moved), castle(p.castle), value(p.value)
 {
 	p.pieceID = static_cast<EnumPiece>(0); //assign 0 to the piece ID of the argument
 	p.colorID = static_cast<EnumColor>(0); //assign 0 to the color ID of the argument
 	p.symbol = '\0'; //zero out the argument's symbol
 	p.name = ""; //empty the argument's name
 	p.moved = false; //and reset the argument's moved flag
+	p.castle = false; //reset the castle flag
+	p.value = 0; //set the value to 0
 }
 
 //assignment operator
@@ -81,6 +94,8 @@ Piece& Piece::operator=(const Piece& src) {
 	this->symbol = src.symbol; //assign the symbol
 	this->name = src.name; //assign the name
 	this->moved = src.moved; //assign the moved flag
+	this->castle = src.castle; //assign the castle flag
+	this->value = src.value; //assign the value
 	return *this; //and return the object
 }
 
@@ -91,15 +106,29 @@ Piece& Piece::operator=(Piece&& src) {
 	this->symbol = src.symbol; //move the symbol
 	this->name = src.name; //move the name
 	this->moved = src.moved; //move the moved flag
+	this->castle = src.castle; //move the castle flag
+	this->value = src.value; //move the value
 	src.pieceID = static_cast<EnumPiece>(0); //assign 0 to the piece ID of the argument
 	src.colorID = static_cast<EnumColor>(0); //assign 0 to the color ID of the argument
 	src.symbol = '\0'; //zero out the argument's symbol
 	src.name = ""; //empty the argument's name
 	src.moved = false; //and reset the argument's moved flag
+	src.castle = false; //reset the castle flag
+	src.value = 0; //set the value to 0
 	return *this; //and return the object
 }
 
 //getter methods
+
+//canCastle method - returns whether the Piece can castle
+bool Piece::canCastle() const {
+	return this->castle; //return the castle flag
+}
+
+//getValue method - returns the trade value of the Piece
+int Piece::getValue() const {
+	return this->value; //return the value field
+}
 
 //hasMoved method - returns whether or not the Piece has moved
 bool Piece::hasMoved() const {

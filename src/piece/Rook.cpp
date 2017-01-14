@@ -47,18 +47,6 @@ Rook& Rook::operator=(Rook&& src) {
 	return *this; //and return the object
 }
 
-//inherited pure virtual methods
-
-//canCastle method - returns whether or not the Rook can castle
-bool Rook::canCastle() const {
-	return true; //rooks can castle
-}
-
-//getValue method - returns the trade value of the Rook (always 5)
-int Rook::getValue() const {
-	return 5; //rooks have a value of 5
-}
-
 //overridden onMove method - called when the Rook is moved
 void Rook::onMove() {
 	Piece::onMove(); //call superclass onMove method

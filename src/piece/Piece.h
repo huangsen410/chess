@@ -37,11 +37,9 @@ class Piece {
 		//move operator
 		Piece& operator=(Piece&& src);
 
-		//pure virtual methods
-		virtual bool canCastle() const = 0; //returns whether or not the Piece can castle
-		virtual int getValue() const = 0; //returns the trade value of the Piece
-
 		//getter methods
+		bool canCastle() const; //returns whether or not the Piece can castle
+		int getValue() const; //returns the trade value of the Piece
 		bool hasMoved() const; //returns whether or not the Piece has moved
 		char getSymbol() const; //returns the board symbol of the Piece
 		EnumColor getColorID() const; //returns the EnumColor instance of the Piece
@@ -60,6 +58,8 @@ class Piece {
 		char symbol; //the symbol that is shown on the board at the Piece's location
 		std::string name; //the actual name of the Piece
 		bool moved; //has the Piece moved?
+		bool castle; //can the Piece castle?
+		int value; //what is the Piece's value?
 };
 
 #endif

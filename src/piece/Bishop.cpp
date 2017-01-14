@@ -47,18 +47,6 @@ Bishop& Bishop::operator=(Bishop&& src) {
 	return *this; //and return the object
 }
 
-//inherited pure virtual methods
-
-//canCastle method - returns whether or not the Bishop can castle (always false)
-bool Bishop::canCastle() const {
-	return false; //bishops can't castle
-}
-
-//getValue method - returns the trade value of the Bishop (always 3)
-int Bishop::getValue() const {
-	return 3; //bishops have a value of 3
-}
-
 //overridden onMove method - called when the Bishop is moved
 void Bishop::onMove() {
 	Piece::onMove(); //call superclass onMove method
