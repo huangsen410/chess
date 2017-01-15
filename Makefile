@@ -13,8 +13,9 @@ UTIL=$(shell ls src/util/*.cpp)
 PIECE=$(shell ls src/piece/*.cpp)
 EXCEP=$(shell ls src/except/*.cpp)
 BOARD=$(shell ls src/board/*.cpp)
+MOVE=$(shell ls src/move/*.cpp)
 
-SOURCES=$(MAIN) $(UTIL) $(PIECE) $(EXCEP) $(BOARD)
+SOURCES=$(MAIN) $(UTIL) $(PIECE) $(EXCEP) $(BOARD) $(MOVE)
 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=chess
