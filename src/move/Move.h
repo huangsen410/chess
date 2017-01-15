@@ -12,6 +12,12 @@
 
 //includes
 #include "../piece/Piece.h"
+#include "../piece/Pawn.h"
+#include "../piece/Rook.h"
+#include "../piece/Knight.h"
+#include "../piece/Bishop.h"
+#include "../piece/Queen.h"
+#include "../piece/King.h"
 #include "../board/Space.h"
 
 //class declaration
