@@ -11,8 +11,8 @@
 
 //function implementations
 
-//addMoveToContext function - adds a move to a SerialContext instance
-void addMoveToContext(SerialContext& ctxt, char piece, bool blue, int startRank, char startFile, int endRank, char endFile) {
+//getMove function - constructs a pointer to a Move object based on parameters and returns it
+Move* getMove(char piece, bool blue, int startRank, char startFile, int endRank, char endFile) {
 	//first we get a Piece instance based on the piece argument
 	Piece* pieceToAdd = nullptr; //the piece instance to be created
 	switch(piece) { //switch on the piece argument
@@ -75,9 +75,10 @@ void addMoveToContext(SerialContext& ctxt, char piece, bool blue, int startRank,
 	EnumFile end = fileFromIndex(endFileAsInt); //get an EnumFile instance representing the end file
 	Space startSpace(startRank, start); //get the start space
 	Space endSpace(endRank, end); //get the end space
-	ctxt.addMove(*pieceToAdd, startSpace, endSpace); //add a move to the context
+	Move* ret = new Move(*pieceToAdd, startSpace, endSpace); //get a Move instance from the parameters
 	delete pieceToAdd; //deallocate the Piece instance
 	pieceToAdd = nullptr; //and zero it out
+	return ret; //and return the Move instance
 }
 
 //end of implementation

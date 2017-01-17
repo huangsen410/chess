@@ -11,10 +11,11 @@
 #define SERIAL_FUNC_H
 
 //includes
-#include "SerialContext.h"
+#include "../move/Move.h"
+#include "../board/Space.h"
 #include "../except/InvalidSymbolException.h"
 
 //function prototype
-void addMoveToContext(SerialContext& ctxt, char piece, bool blue, int startRank, char startFile, int endRank, char endFile);
+Move* getMove(char piece, bool blue, int startRank, char startFile, int endRank, char endFile);
 
 #endif

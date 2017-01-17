@@ -43,6 +43,7 @@ class SerialContext final {
 		//addMove methods - add a Move to the context
 		void addMove(Piece& movePiece, Space& startSpace, Space& endSpace); //constructs a Move and adds it
 		void addMove(const Move& moveToAdd); //adds a preconstructed Move
+		void addMove(Move* moveToAdd); //adds a preconstructed Move
 
 		//hasMoves method - returns true if the context is holding one or more Move objects
 		bool hasMoves() const;

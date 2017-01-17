@@ -55,12 +55,17 @@ std::vector<Move> SerialContext::moves() const {
 
 //first addMove method - adds a Move to the context by constructing the Move from parameters
 void SerialContext::addMove(Piece& movePiece, Space& startSpace, Space& endSpace) {
-	this->addMove(Move(movePiece, startSpace, endSpace)); //construct the move and add it using the other addMove method
+	this->addMove(Move(movePiece, startSpace, endSpace)); //construct the move and add it using the second addMove method
 }
 
 //second addMove method - adds an already-constructed Move to the context
 void SerialContext::addMove(const Move& moveToAdd) {
 	this->moveAccum.push_back(moveToAdd); //add the Move to the accumulator
+}
+
+//third addMove method - adds a pointer to an already-constructed Move to the context
+void SerialContext::addMove(Move* moveToAdd) {
+	this->addMove(*moveToAdd); //dereference the move and add it using the second addMove method
 }
 
 //hasMoves method - returns true if the accumulator is not empty
