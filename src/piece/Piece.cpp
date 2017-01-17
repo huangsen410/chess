@@ -16,41 +16,41 @@ Piece::Piece(EnumPiece newPieceID, EnumColor newColorID)
 	//now we determine the symbol and name fields
 	switch(pieceID) {
 		case EnumPiece::PAWN: { //if the piece is a pawn
-			symbol = colorID == EnumColor::WHITE ? 'P' : 'p'; //the symbol is a P
+			symbol = 'P'; //the symbol is a P
 			name = "pawn"; //self-explanatory
 			//default castle and value names work
 			break;
 		}
 		case EnumPiece::ROOK: { //if the piece is a rook
-			symbol = colorID == EnumColor::WHITE ? 'R' : 'r'; //the symbol is an R
+			symbol = 'R'; //the symbol is an R
 			name = "rook"; //self-explanatory
 			castle = true; //rooks can castle
 			value = 5; //rooks have a value of 5
 			break;
 		}
 		case EnumPiece::KNIGHT: { //if the piece is a knight
-			symbol = colorID == EnumColor::WHITE ? 'N' : 'n'; //the symbol is an N
+			symbol = 'N'; //the symbol is an N
 			name = "knight"; //self-explanatory
 			//default castle value works
 			value = 3; //knights have a value of 3
 			break;
 		}
 		case EnumPiece::BISHOP: { //if the piece is a bishop
-			symbol = colorID == EnumColor::WHITE ? 'B' : 'b'; //the symbol is a B
+			symbol = 'B'; //the symbol is a B
 			name = "bishop"; //self-explanatory
 			//default castle value works
 			value = 3; //bishops have a value of 3
 			break;
 		}
 		case EnumPiece::KING: { //if the piece is a king
-			symbol = colorID == EnumColor::WHITE ? 'K' : 'k'; //the symbol is a K
+			symbol = 'K'; //the symbol is a K
 			name = "king"; //self-explanatory
 			castle = true; //kings can castle
 			value = 1000; //kings are worth the game
 			break;
 		}
 		case EnumPiece::QUEEN: { //if the piece is a queen
-			symbol = colorID == EnumColor::WHITE ? 'Q' : 'q'; //the symbol is a Q
+			symbol = 'Q'; //the symbol is a Q
 			name = "queen"; //self-explanatory
 			//default castle value works
 			value = 9; //queens are worth 9 points
