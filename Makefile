@@ -6,7 +6,6 @@ CC=g++
 
 CFLAGS=-c -Wall -fPIC -Wno-unused-value -std=c++14
 LIBFLAGS=-lncurses -lfl
-LDFLAGS=-lgnustl_shared
 
 MAIN=$(shell ls src/*.cpp)
 UTIL=$(shell ls src/util/*.cpp)
@@ -53,24 +52,6 @@ $(EXECUTABLE): $(OBJECTS) $(PARSECODE)
 
 debug: $(OBJECTS) $(PARSECODE)
 	$(CC) -g $(OBJECTS) $(MPIMPL) $(MCLEXER) -o $(EXECUTABLE) $(LIBFLAGS)
-	mkdir obj
-	mkdir bin
-	mkdir parse
-	mv -f $(EXECUTABLE) bin/
-	mv -f $(OBJECTS) obj/
-	mv -f $(PARSECODE) parse/
-
-android: $(OBJECTS) $(PARSECODE)
-	$(CC) $(OBJECTS) $(MPIMPL) $(MCLEXER) -o $(EXECUTABLE) $(LDFLAGS) $(LIBFLAGS)
-	mkdir obj
-	mkdir bin
-	mkdir parse
-	mv -f $(EXECUTABLE) bin/
-	mv -f $(OBJECTS) obj/
-	mv -f $(PARSECODE) parse/
-
-debug-android: $(OBJECTS) $(PARSECODE)
-	$(CC) -g $(OBJECTS) $(MPIMPL) $(MCLEXER) -o $(EXECUTABLE) $(LDFLAGS) $(LIBFLAGS)
 	mkdir obj
 	mkdir bin
 	mkdir parse
